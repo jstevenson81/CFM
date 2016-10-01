@@ -1,0 +1,27 @@
+{
+  "name": "cfm",
+  "version": "1.0.0",
+  "description": "Crossfit Mandeville's new site",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonathan Stevenson",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "font-awesome": "^4.6.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.4",
+    "jquery": "^1.11.3",
+    "lite-server": "^2.2.2",
+    "magnific-popup": "^1.1.0",
+    "scrollreveal": "^3.1.4"
+  }
+}

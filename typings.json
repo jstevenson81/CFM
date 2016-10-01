@@ -1,0 +1,5 @@
+{
+  "globalDevDependencies": {
+    "gulp-sourcemaps": "registry:dt/gulp-sourcemaps#0.0.0+20160316155526"
+  }
+}

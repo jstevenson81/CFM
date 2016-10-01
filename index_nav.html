@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CrossFit Mandeville | Premier CrossFit Affiliate - Mandeville, LA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bower:css -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap/dist/css/bootstrap.min.css" />
+  <!-- endbower -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <!-- endinject -->
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- nav area -->
+    <div class="button_container" id="toggle">
+      <span class="top"></span>
+      <span class="middle"></span>
+      <span class="bottom"></span>
+    </div>
+    <div class="overlay" id="overlay">
+      <nav class="overlay-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/coaches">Coaches</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- /nav area -->
+    <!-- row picture-row -->
+    <div class="row picture-row">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-col">
+            <img src="assets/images/header_logo.png" alt="Crossfit Mandeville Logo">
+          </div>
+        </div>
+        <div class="row intro-row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1>cfm ||| train harder</h1>
+            <h1>Mandeville, LA<br /><small>2101 N Causeway Blvd, Mandeville, LA 70471</small></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /row picture-row -->
+
+    <div class="row what-is-crosfit">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h1>What is Crossfit?</h1>
+        <p>
+          CrossFit is the principal strength and conditioning program for many police academies, tactical operations teams,
+          military operations units, and other elite professional athletes worldwide. CrossFit delivers a fitness regime
+          that is broad, general, and inclusive.
+        </p>
+        <p>
+          Our speciality in CrossFit is not specializing in any one area. Combat, survival, many sports and life, in general,
+          reward this kind of fitness and, on average, punish the specialist. CrossFit is designed to be universally scalable,
+          meaning it’s the perfect application for any individual regardless of fitness experience.
+        </p>
+        <p>
+          We don’t change our programming for each individual, but we do scale the load and intensity. We use the same routine for
+          elderly individuals as we do professional athletes.
+        </p>
+        <p>
+          Courtesy of CrossFit, Inc.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- bower:js -->
+  <script src="assets/vendor/jquery/dist/jquery.js"></script>
+  <script src="assets/vendor/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- endbower -->
+  <!-- inject:js -->
+  <!-- endinject -->
+
+  <script type="text/javascript">
+$('#toggle').click(function() {
+   $(this).toggleClass('active');
+   $('#overlay').toggleClass('open');
+  });
+</script>
+</body>
+
+</html>
