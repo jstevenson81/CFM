@@ -16,16 +16,16 @@
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-        rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
-        rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
     <link href="css/creative.min.css" rel="stylesheet">
+    <link href="css/nav.min.css" rel="stylesheet">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,40 +38,25 @@
 
 <body id="page-top">
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <img src="img/header_logo.png">
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#whatiscrossfit">What is Crossfit?</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#coaches">Coaches</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#wod">WOD (Workout of the Day)</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
+    <!-- nav area -->
+    <div class="button_container" id="toggle">
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+    </div>
+    <div class="overlay" id="overlay">
+        <nav class="overlay-menu">
+            <ul>
+                <li><a class="page-scroll" href="#page-top">Home</a></li>
+                <li><a class="page-scroll" href="#whatiscrossfit">What is Crossfit</a></li>
+                <li><a class="page-scroll" href="#coaches">Coaches</a></li>
+                <li><a class="page-scroll" href="#wod">WOD (Workout of the Day)</a></li>
+                <li><a class="page-scroll" href="#contact">Get Started!</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- /nav area -->
+    <div>
     <header>
         <div class="header-content">
             <div class="header-content-inner">
@@ -173,15 +158,15 @@
                     </a>
                     <div id="casey-details" class="collapse" aria-expanded="false">
                         <p class="text-left">
-                            Casey is a CrossFit Level 1, CrossFit Level 2, and CrossFit Gymnastics trainer. 
-                            He is originally from Pittsburgh, PA and grew up playing soccer, football, running track. 
-                            While in the Army in 2010, he wanted to go beyond the standard military fitness routine, 
-                            so he started CrossFit and has not looked back. In addition to being a CrossFit coach, 
-                            he now works with St. Paul’s High School in Covington as a Certified Athletic Trainer.
+                            Casey is a CrossFit Level 1, CrossFit Level 2, and CrossFit Gymnastics trainer. He is originally from Pittsburgh, PA and
+                            grew up playing soccer, football, running track. While in the Army in 2010, he wanted to go beyond
+                            the standard military fitness routine, so he started CrossFit and has not looked back. In addition
+                            to being a CrossFit coach, he now works with St. Paul’s High School in Covington as a Certified
+                            Athletic Trainer.
                         </p>
                         <p class="text-left">
-                            “It’s an honor to coach others and help them reach their fitness goals. 
-                            I encourage everyone, whether you are trying to compete, step out of your comfort zone, get in shape, or even make friends, to try CrossFit.”
+                            “It’s an honor to coach others and help them reach their fitness goals. I encourage everyone, whether you are trying to compete,
+                            step out of your comfort zone, get in shape, or even make friends, to try CrossFit.”
                         </p>
                         <ul class="text-left">
                             <li><strong>Certifications:</strong> Level 1, Level 2, CrossFit Gymnastics</li>
