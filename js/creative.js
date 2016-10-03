@@ -6,6 +6,11 @@
         $('#overlay').toggleClass('open');
     });
 
+    $('nav > ul > li > a').click(function() {
+        $('#toggle').toggleClass('active');
+        $('#overlay').toggleClass('open');
+    });
+
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $('a.page-scroll').bind('click', function (event) {
         var $anchor = $(this);
