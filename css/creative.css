@@ -221,22 +221,32 @@ header .header-content .header-content-inner p {
 .service-box p {
   margin-bottom: 0;
 }
-.person {
-  border: 10px solid transparent;
-  margin-bottom: 25px;
+.coach-link img {
+  height: 220px;
+  background-color: #f1f1f1;
+  box-shadow: 0 0 0 5px #f1f1f1;
+  border-radius: 50%;
 }
-.person-name {
+.coach-link img:hover {
+  cursor: pointer;
+  animation: bounceOut .4s linear;
+}
+.coach-name {
   text-transform: uppercase;
   font-size: 1.5em;
   margin-bottom: 20px;
   margin-top: 10px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
-.person:hover {
-  border-color: #f1f1f1;
+.coach-row {
+  margin-bottom: 2em;
 }
-.img-circle {
-  border-radius: 50%;
+.coach-details {
+  padding: 30px;
+}
+.coach-details ul {
+  list-style: none;
+  padding-left: 0;
 }
 .call-to-action h2 {
   margin: 0 auto 20px;
@@ -375,10 +385,25 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
-.coach-link img {
-  height: 220px;
-}
-.coach-details ul {
-  list-style: none;
-  padding-left: 0;
+@keyframes bounceOut {
+  0% {
+    box-shadow: 0 0 0 4px #f1f1f1;
+    opacity: 1;
+  }
+  25% {
+    box-shadow: 0 0 0 1px #f1f1f1;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 7px #f1f1f1;
+    opacity: 1;
+  }
+  75% {
+    box-shadow: 0 0 0 4px #f1f1f1;
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 5px #f1f1f1;
+    opacity: 1;
+  }
 }
