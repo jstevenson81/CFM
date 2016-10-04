@@ -1,6 +1,13 @@
 (function ($) {
     "use strict"; // Start of use strict
 
+    $('.coach-link').click(function() {
+        var currentDetails = $(this).attr('href');
+        $('.coach-details').not(currentDetails).each(function(i) {
+            $(this).collapse('hide');
+        });
+    });
+
     $('#toggle').click(function () {
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');

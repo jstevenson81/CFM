@@ -1,8 +1,3 @@
-/*!
- * Start Bootstrap -  v1.0.0 ()
- * Copyright 2013-2016 Jonathan Stevenson
- * Licensed under  ()
- */
 html,
 body {
   height: 100%;
@@ -379,4 +374,11 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #222222;
+}
+.coach-link img {
+  height: 220px;
+}
+.coach-details ul {
+  list-style: none;
+  padding-left: 0;
 }
