@@ -73,6 +73,9 @@ gulp.task('copy', function () {
     gulp.src(['node_modules/scrollreveal/dist/*.js'])
         .pipe(gulp.dest('vendor/scrollreveal'))
 
+    gulp.src(['node_modules/animate.css/*.css'])
+        .pipe(gulp.dest('vendor/animatecss'));
+
     gulp.src([
         'node_modules/font-awesome/**',
         '!node_modules/font-awesome/**/*.map',

@@ -104,22 +104,6 @@
   text-decoration: none;
   overflow: hidden;
 }
-.overlay ul li a:hover:after,
-.overlay ul li a:focus:after,
-.overlay ul li a:active:after {
-  width: 100%;
-}
-.overlay ul li a:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0%;
-  transform: translateX(-50%);
-  height: 3px;
-  background: #fff;
-  transition: .35s;
-}
 @keyframes fadeInRight {
   0% {
     opacity: 0;

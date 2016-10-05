@@ -115,24 +115,6 @@
         color: @color-link;
         text-decoration: none;
         overflow: hidden;
-        
-        &:hover:after,
-         &:focus:after,
-         &:active:after {
-           width: 100%;
-         }
-        
-        &:after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          width: 0%;
-          transform: translateX(-50%);
-          height: 3px;
-          background: @color-link;
-          transition: .35s;
-        }
       }
     }
   }

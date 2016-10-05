@@ -223,6 +223,12 @@ header {
 }
 
 // Sections
+@media (max-width: 768px) {
+    .col-sm-12 {
+        margin-bottom: 2em;
+    }
+}
+
 
 .section-heading {
     margin-top: 0;
@@ -262,7 +268,9 @@ header {
 }
 
 .coach-row {
-    margin-bottom: 2em;
+    @media (min-width: 768px) {
+        margin-bottom: 2em;
+    }
 }
 
 .coach-details {

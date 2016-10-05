@@ -206,6 +206,11 @@ header .header-content .header-content-inner p {
     margin-right: auto;
   }
 }
+@media (max-width: 768px) {
+  .col-sm-12 {
+    margin-bottom: 2em;
+  }
+}
 .section-heading {
   margin-top: 0;
 }
@@ -238,8 +243,10 @@ header .header-content .header-content-inner p {
   margin-top: 10px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
-.coach-row {
-  margin-bottom: 2em;
+@media (min-width: 768px) {
+  .coach-row {
+    margin-bottom: 2em;
+  }
 }
 .coach-details {
   padding: 30px;

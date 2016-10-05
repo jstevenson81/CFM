@@ -1,9 +1,21 @@
 (function ($) {
     "use strict"; // Start of use strict
 
-    $('.coach-link').click(function() {
+    $.fn.extend({
+        animateCss: function (animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function () {
+                $(this).removeClass('animated ' + animationName);
+            });
+        }
+    });
+
+    $('.btn').hover(function() {$(this).animateCss('jello')});
+    
+
+    $('.coach-link').click(function () {
         var currentDetails = $(this).attr('href');
-        $('.coach-details').not(currentDetails).each(function(i) {
+        $('.coach-details').not(currentDetails).each(function (i) {
             $(this).collapse('hide');
         });
     });
@@ -13,7 +25,7 @@
         $('#overlay').toggleClass('open');
     });
 
-    $('nav > ul > li > a').click(function() {
+    $('nav > ul > li > a').click(function () {
         $('#toggle').toggleClass('active');
         $('#overlay').toggleClass('open');
     });
