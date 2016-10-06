@@ -9,6 +9,7 @@
   "author": "Jonathan Stevenson",
   "license": "ISC",
   "devDependencies": {
+    "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.13.0",
     "del": "^2.2.2",
@@ -19,13 +20,13 @@
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^6.1.2",
+    "gulp-typescript": "^3.0.2",
     "gulp-uglify": "^2.0.0",
     "jquery": "^3.1.1",
     "lite-server": "^2.2.2",
-    "magnific-popup": "^1.1.0",
-    "scrollreveal": "^3.1.4"
-  },
-  "dependencies": {
-    "animate.css": "^3.5.2"
+    "scrollreveal": "^3.1.4",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.3"
   }
 }

@@ -1,8 +1,8 @@
 {
   "resolution": "main",
   "tree": {
-    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/20e557ecad41d9a9e4af7fbab58f90366c72aa94/scrollreveal/scrollreveal.d.ts",
-    "raw": "registry:dt/scrollreveal#0.0.0+20160914114454",
-    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/20e557ecad41d9a9e4af7fbab58f90366c72aa94/scrollreveal/scrollreveal.d.ts"
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/b29fcd9959fe1bb36165b0888b024b208003600c/scrollreveal/scrollreveal.d.ts",
+    "raw": "github:DefinitelyTyped/DefinitelyTyped/scrollreveal/scrollreveal.d.ts#b29fcd9959fe1bb36165b0888b024b208003600c",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/b29fcd9959fe1bb36165b0888b024b208003600c/scrollreveal/scrollreveal.d.ts"
   }
 }

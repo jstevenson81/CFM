@@ -1,14 +1,8 @@
 {
-  "globalDevDependencies": {
-    "bootstrap": "registry:dt/bootstrap#3.3.5+20160619023404",
-    "browser-sync": "registry:dt/browser-sync#0.0.0+20160928124223",
-    "del": "registry:dt/del#2.2.0+20160317120654",
-    "gulp": "registry:dt/gulp#3.8.0+20160907112908",
-    "gulp-less": "registry:dt/gulp-less#0.0.0+20160316155526",
-    "gulp-rename": "registry:dt/gulp-rename#0.0.0+20160817204333",
-    "gulp-sourcemaps": "registry:dt/gulp-sourcemaps#0.0.0+20160316155526",
-    "gulp-uglify": "registry:dt/gulp-uglify#0.0.0+20160826020907",
-    "jquery": "registry:dt/jquery#1.10.0+20160929162922",
-    "scrollreveal": "registry:dt/scrollreveal#0.0.0+20160914114454"
+  "name": "cfm",
+  "globalDependencies": {
+    "scrollreveal": "github:DefinitelyTyped/DefinitelyTyped/scrollreveal/scrollreveal.d.ts#b29fcd9959fe1bb36165b0888b024b208003600c",
+    "bootstrap": "github:DefinitelyTyped/DefinitelyTyped/bootstrap/bootstrap.d.ts#b29fcd9959fe1bb36165b0888b024b208003600c",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#b29fcd9959fe1bb36165b0888b024b208003600c"
   }
 }
