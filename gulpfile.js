@@ -11,8 +11,7 @@ var
     sourcemaps = require('gulp-sourcemaps'),
     del = require('del'),
     tslint = require('gulp-tslint'),
-    browserify = require('browserify'),
-    transform = require('vinyl-source-stream');
+    bundle = require('gulp-bundle-assets');
 
 var
     source = 'src/',
@@ -31,14 +30,6 @@ gulp.task('css:less', ['css:clean'], function () {
         .pipe(browserSync.reload({
             stream: true
         }))
-});
-
-// Minify compiled CSS
-gulp.task('css:minify', ['css:less'], function () {
-    return gulp.src(source + 'css/**/**.css')
-        .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest(source + 'css'))
 });
 
 gulp.task('ts:lint', function () {
@@ -60,42 +51,20 @@ gulp.task('ts:compile', ['ts:lint'], function () {
         .pipe(gulp.dest(source + 'js'));
 });
 
-gulp.task('ts:bundle', ['ts:compile'], function () {
+gulp.task('build:clean', ['css:less', 'ts:compile'], function() {
+    del('./dist/**/**');
+});
 
-    
+gulp.task('build:bundle', ['build:clean'], function () {
+
+    return gulp.src('./bundle.config.js')
+        .pipe(bundle())
+        .pipe(gulp.dest('./dist'));
 
 });
 
-// Copy vendor libraries from /node_modules into /vendor
-gulp.task('vendor:copy', function () {
-    gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
-        .pipe(gulp.dest(source + 'vendor/bootstrap'))
-
-    gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
-        .pipe(gulp.dest(source + 'vendor/jquery'))
-
-    gulp.src(['node_modules/magnific-popup/dist/*'])
-        .pipe(gulp.dest(source + 'vendor/magnific-popup'))
-
-    gulp.src(['node_modules/scrollreveal/dist/*.js'])
-        .pipe(gulp.dest(source + 'vendor/scrollreveal'))
-
-    gulp.src(['node_modules/animate.css/*.css'])
-        .pipe(gulp.dest(source + 'vendor/animatecss'));
-
-    gulp.src([
-        'node_modules/font-awesome/**',
-        '!node_modules/font-awesome/**/*.map',
-        '!node_modules/font-awesome/.npmignore',
-        '!node_modules/font-awesome/*.txt',
-        '!node_modules/font-awesome/*.md',
-        '!node_modules/font-awesome/*.json'
-    ])
-        .pipe(gulp.dest(source + 'vendor/font-awesome'))
-})
-
 // Run everything
-gulp.task('default', ['css:minify', 'ts:bundle', 'vendor:copy']);
+gulp.task('default', ['vendor:copy', 'build:bundle']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {

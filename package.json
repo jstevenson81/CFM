@@ -15,6 +15,7 @@
     "del": "^2.2.2",
     "font-awesome": "^4.6.3",
     "gulp": "^3.9.1",
+    "gulp-bundle-assets": "^2.27.1",
     "gulp-clean-css": "^2.0.10",
     "gulp-header": "^1.8.7",
     "gulp-less": "^3.1.0",
