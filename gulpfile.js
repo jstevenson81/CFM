@@ -11,11 +11,14 @@ var
     sourcemaps = require('gulp-sourcemaps'),
     del = require('del'),
     tslint = require('gulp-tslint'),
-    bundle = require('gulp-bundle-assets');
+    bundle = require('gulp-bundle-assets'),
+    inject = require('gulp-inject');
 
 var
     source = 'src/',
-    tsProject = tsc.createProject('tsconfig.json');
+    tsProject = tsc.createProject('tsconfig.json'),
+    dev = false;
+
 
 gulp.task('css:clean', function () {
     del(source + 'css/**/*.css')
@@ -63,23 +66,32 @@ gulp.task('build:bundle', ['build:clean'], function () {
 
 });
 
+gulp.task('build:inject', ['build:bundle'], function() {
+    return gulp
+        .src('./dist/index.html')
+        .pipe(inject(gulp.src(['./dist/**/*.js', './dist/**/*.css'], {read: false}), {relative: true}))
+        .pipe(gulp.dest('./dist'))
+});
+
 // Run everything
-gulp.task('default', ['vendor:copy', 'build:bundle']);
+gulp.task('default', ['build:inject']);
 
 // Configure the browserSync task
-gulp.task('browserSync', function () {
-    browserSync.init({
-        server: {
-            baseDir: '/src'
-        },
-    })
+gulp.task('dev:watch', ['build:inject'], function (done) {
+    browserSync.reload();
+    done();
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'css:minify', 'ts:bundle'], function () {
-    gulp.watch(source + 'less/**/**.less', ['css:minify']);
-    gulp.watch(source + 'ts/**/**.ts', ['ts:bundle']);
-    // Reloads the browser whenever HTML or JS files change
-    gulp.watch(source + '**.html', browserSync.reload);
-    gulp.watch(source + 'js/**/**.js', browserSync.reload);
+gulp.task('dev', ['build:inject'], function () {
+
+    browserSync.init({
+        server: {
+            baseDir: './dist'
+        },
+    })
+
+    gulp.watch(source + 'less/**/**.less', ['dev:watch']);
+    gulp.watch(source + 'ts/**/**.ts', ['dev:watch']);
+    gulp.watch(source + '*.html', ['dev:watch']);
 });

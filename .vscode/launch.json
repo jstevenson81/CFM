@@ -26,7 +26,7 @@
             "type": "chrome",
             "request": "launch",
             "diagnosticLogging": true,
-            "url": "http://localhost:3000", //Change to whatever you homepage is
+            "url": "http://localhost:3000/dist/index.html", //Change to whatever you homepage is
             "runtimeArgs": [
                 //"--new-window", //Open in new window
                 //"--user-data-dir=/home/user", //Can be any directory. Makes chrome load in a different directory so that it opens in a new instance.

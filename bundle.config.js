@@ -19,10 +19,24 @@ var config = {
             ]
         },
     },
-    copy: {
+    copy:[
+        {
         src: [npm + 'bootstrap/dist/fonts/**/*.*'],
-        base: npm + 'bootstrap/dist/'
-    }
+        base: npm + 'bootstrap/dist/',
+        },
+        {
+            src: [src + '/index.html'],
+            base: src
+        },
+        {
+            src: [src + '/img/**/*.*'],
+            base: src
+        },
+        {
+            src: [src + '/ts/**/*.*'],
+            base: src           
+        }
+    ]
 }
 
 module.exports = config;

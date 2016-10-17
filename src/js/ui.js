@@ -7,6 +7,10 @@
             $(this).collapse('hide');
         });
     });
+    $('.collapse').on('shown.bs.collapse', function () {
+        var $this = $(this);
+        $('html, body').stop().animate({ scrollTop: ($this.offset().top - 50) }, 1250, 'easeInOutExpo');
+    });
     $('#toggle').click(function () {
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
