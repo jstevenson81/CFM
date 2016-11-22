@@ -1,8 +1,0 @@
-{
-  "name": "cfm",
-  "globalDependencies": {
-    "scrollreveal": "github:DefinitelyTyped/DefinitelyTyped/scrollreveal/scrollreveal.d.ts#b29fcd9959fe1bb36165b0888b024b208003600c",
-    "bootstrap": "github:DefinitelyTyped/DefinitelyTyped/bootstrap/bootstrap.d.ts#b29fcd9959fe1bb36165b0888b024b208003600c",
-    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#b29fcd9959fe1bb36165b0888b024b208003600c"
-  }
-}
