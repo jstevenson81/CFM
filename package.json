@@ -7,7 +7,12 @@
   "author": "Jonathan Stevenson",
   "license": "ISC",
   "devDependencies": {
+    "@types/body-parser": "0.0.33",
+    "@types/bootstrap": "^3.3.32",
+    "@types/express": "^4.0.34",
     "@types/gulp": "^3.8.32",
+    "@types/jquery": "^2.0.34",
+    "@types/scrollreveal": "0.0.2",
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.13.0",

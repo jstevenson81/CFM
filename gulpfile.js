@@ -4,7 +4,7 @@ var
 
 gulp.task('default', function() {
     nodemon({
-        script: './src/svr/app.js',
+        script: './dist/svr/app.js',
         ext: 'js', 
         env: {
             PORT: 8000
