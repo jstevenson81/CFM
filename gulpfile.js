@@ -22,7 +22,7 @@ gulp.task('less', function() {
     return gulp.src('./src/less/agency.less')
         .pipe(less())
         .pipe(header(banner, { pkg: pkg }))
-        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest('./src/css'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -33,7 +33,7 @@ gulp.task('minify-css', ['less'], function() {
     return gulp.src('./src/css/agency.css')
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest('./src/css'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -45,7 +45,7 @@ gulp.task('minify-js', function() {
         .pipe(uglify())
         .pipe(header(banner, { pkg: pkg }))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('js'))
+        .pipe(gulp.dest('./src/js'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -77,7 +77,7 @@ gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
 gulp.task('browserSync', function() {
     browserSync.init({
         server: {
-            baseDir: ''
+            baseDir: './src'
         },
     })
 })
