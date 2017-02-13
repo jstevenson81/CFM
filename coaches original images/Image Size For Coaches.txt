@@ -1,0 +1,5 @@
+2700x2400 marquee
+Center on the coach
+New layer via copy
+hide background
+size to width of 225 (should make height 200)
