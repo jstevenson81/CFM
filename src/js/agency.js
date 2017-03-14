@@ -20,7 +20,7 @@
 
     // Closes the Responsive Menu on Menu Item Click
     $('.navbar-collapse ul li a:not(.dropdown-toggle)').click(function(){ 
-            $('.navbar-toggle:visible').click();
+        $('.navbar-toggle:visible').click();
     });
 
     // Offset for Main Navigation
@@ -28,6 +28,6 @@
         offset: {
             top: 100
         }
-    })
+    });
 
 })(jQuery); // End of use strict
