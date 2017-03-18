@@ -22,7 +22,9 @@
         "./assets/bootstrap/css/bootstrap.min.css",
         "./assets/less/cfm.less"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
