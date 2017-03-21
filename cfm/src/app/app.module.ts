@@ -3,18 +3,26 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import {WodDataService} from './wod/wod.dataService';
+
 import { AppComponent } from './app.component';
+import {NavComponent} from './nav/nav.component';
+import {WodComponent} from './wod/wod.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    WodComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    WodDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
