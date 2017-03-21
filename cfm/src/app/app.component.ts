@@ -1,8 +1,4 @@
-﻿// typings imports
-import 'jquery';
-import 'bootstrap';
-
-// angular imports
+﻿// angular imports
 import { Component } from '@angular/core';
 
 // jquery 

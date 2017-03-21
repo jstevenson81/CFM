@@ -1,18 +1,18 @@
 @import '../../assets/less/variables.less';
 @import '../../assets/less/mixins.less';
 
-.wod-list-container {
-    text-align: center;
-}
-.wod-list {
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0;
-
-    li {
+.btn-group {
+    label {
         margin-right: 10px;
-        display: inline-block;
-        
+        &.active {
+            background-color: #204d74;
+            border-color: #122b40;
+        }
     }
-
+}
+.wod-container {
+    margin-top: 40px;
+}
+.wod {
+    margin-top: 20px;
 }

@@ -50,6 +50,38 @@ export class WodDataService {
         return Observable.throw(errMsg);
     }
 
+    private createWodRecord(res: IWodifyRecord): IApiWod {
+        
+        // create a wod
+        var wod: IApiWod = { Program: {Id: '', Name: ''}, Components: {Component: []}, WodHeader: {Date: '', Name: ''}, NoWod: false};
+        // if we have no wod then return a IApiWod with a name and date only in the WodHeader
+        if (!_.isUndefined(res.APIError) && res.APIError.ResponseCode === '400') {
+            // set the error information
+            wod.NoWod = true;
+            // return the wod
+            return wod;
+        }
+        // set all the other information
+        wod.Program.Id=res.RecordList.APIWod.Program.Id;
+        wod.Program.Name=res.RecordList.APIWod.Program.Name;
+        wod.WodHeader.Date = moment(res.RecordList.APIWod.WodHeader.Date, 'YYYY-MM-DD').format('dddd, MMMM Do, YYYY');
+        wod.WodHeader.Name = res.RecordList.APIWod.WodHeader.Name;
+        // push the components to the wod
+        _.each(res.RecordList.APIWod.Components.Component, (component: IComponent) => {
+            // map the component if it has a description or a comment
+            if (!_.isEmpty(component.Comments) || !_.isEmpty(component.Description)) {
+                // remove the line breaks
+                var description = _.isEmpty(component.Description) ? '' : component.Description.replace(/(\r\n|\n|\r)/gm, '<br />');
+                var comments = _.isEmpty(component.Comments) ? '' : component.Comments.replace(/(\r\n|\n|\r)/gm, '<br />');
+                // push the components
+                wod.Components.Component.push({ Name: component.Name, Description: description, Comments: comments });
+            }
+        });
+
+        // return the wod
+        return wod;
+    }
+
     getPrograms(): Observable<Array<IProgram>> {
         var url = this.formatRequest('https://app.wodify.com/API/programs_v1.aspx');
 
@@ -85,28 +117,11 @@ export class WodDataService {
             .map((res: Response) => res.json() as IWodifyRecord)
             // map the record to a wod
             .map((res: IWodifyRecord) => {
-                // create a wod
-                var wod: IApiWod = {
-                    Program: {
-                        Id: res.RecordList.APIWod.Program.Id,
-                        Name: res.RecordList.APIWod.Program.Name
-                    },
-                    Components: {
-                        Component: []
-                    }
-                };
-                _.each(res.RecordList.APIWod.Components.Component, (component: IComponent) => {
-                    // map the component if it has a description or a comment
-                    if (!_.isEmpty(component.Comments) || !_.isEmpty(component.Description)) {
-                        // remove the line breaks
-                        var description = _.isEmpty(component.Description) ? '' : component.Description.replace(/(\r\n|\n|\r)/gm, '<br />');
-                        var comments = _.isEmpty(component.Comments) ? '' : component.Comments.replace(/(\r\n|\n|\r)/gm, '<br />');
-                        // push the record
-                        wod.Components.Component.push({ Name: component.Name, Description: description, Comments: comments });
-                    }
-                });
-                // return the wod object
-                return wod;
-            });
+               // return the created record
+               return this.createWodRecord(res);
+            })
+            .catch(this.handleError);
     }
+
+
 }

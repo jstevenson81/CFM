@@ -1,5 +1,19 @@
-<ul class="wod-list">
-    <li *ngFor="let prog of programList">
-        <button class="btn btn-primary">{{prog.Name}} ({{prog.Id}})</button>
-    </li>
-</ul>
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary" *ngFor="let prog of programList" (click)="getWod(prog.Name)">
+        <input type="radio" name="programs" value="{{prog.Id}}">{{prog.Name}} ({{prog.Id}})
+    </label>
+</div>
+
+<div *ngIf="wod?.NoWod === true" class="wod-container">
+    <h3>{{wodProgramName}} <small>{{wodDate}}</small></h3>
+    <p class="emphasis text-danger"><strong>There is no WOD scheduled.</strong>  Check back tomorrow for an update</p>
+</div>
+
+<div *ngIf="wod?.NoWod === false" class="wod-container">
+    <h3>{{wod?.WodHeader.Name}} <small>{{wod?.WodHeader.Date}}</small></h3>
+    <div *ngFor="let component of wod?.Components?.Component" class="wod">
+        <h4 [innerHTML]="component.Name"></h4>
+        <strong [innerHTML]="component.Description"></strong>
+        <strong [innerHTML]="component.Comments"></strong>
+    </div>
+</div>
