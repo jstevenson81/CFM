@@ -1,8 +1,14 @@
-<div class="btn-group" data-toggle="buttons">
+<div class="btn-group hidden-xs" data-toggle="buttons">
     <label class="btn btn-primary" *ngFor="let prog of programList" (click)="getWod(prog.Name)">
-        <input type="radio" name="programs" value="{{prog.Id}}">{{prog.Name}} ({{prog.Id}})
+        <input type="radio" name="programs" value="{{prog.Id}}">{{prog.Name}}
     </label>
 </div>
+<div class="btn-group-vertical visible-xs" data-toggle="buttons">
+    <label class="btn btn-primary" *ngFor="let prog of programList" (click)="getWod(prog.Name)">
+        <input type="radio" name="programs" value="{{prog.Id}}">{{prog.Name}}
+    </label>
+</div>
+
 
 <div *ngIf="wod?.NoWod === true" class="wod-container">
     <h3>{{wodProgramName}} <small>{{wodDate}}</small></h3>
