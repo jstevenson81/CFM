@@ -169,6 +169,20 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.container-fluid {
+    .row {
+        [class*="col-"] {
+            div {
+                &.wod-list-container {
+                    margin-bottom: 10px;
+                    padding-bottom: 20px;
+                    border-bottom: solid 1px @gray-light;
+                }
+            }
+        }
+    }
+}
+
 // Navbar Change on Scroll
 
 @media(min-width:768px) {

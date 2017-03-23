@@ -1,6 +1,13 @@
 @import '../../assets/less/variables.less';
 @import '../../assets/less/mixins.less';
 
+.btn {
+    &.active {
+        background-color: #204d74;
+        border-color: #122b40;
+    }
+}
+
 .btn-group {
     label {
         &.active {
@@ -14,4 +21,11 @@
 }
 .wod {
     margin-top: 20px;
+}
+
+.xs-vert-single-button {
+    margin-top: 10px;
+    @media(max-width: 768px) {
+        text-align: left;
+    }
 }
