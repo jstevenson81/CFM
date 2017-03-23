@@ -13,9 +13,11 @@ import { IApiWod } from '../interfaces/IApiWod';
 import { IComponent } from '../interfaces/IComponent';
 import { IComponentList } from '../interfaces/IComponentList';
 import { IWodifyRecord } from '../interfaces/IWodifyRecord';
+import { IClass } from '../interfaces/IClass';
+import { IApiClass } from '../interfaces/IApiClass';
 
 @Injectable()
-export class WodDataService {
+export class WodifyDataService {
 
     apiKey: string;
     dataType: string;
@@ -26,7 +28,7 @@ export class WodDataService {
         this.apiKey = '8oxu8eutwg3d740yte9qo6rhd'
         this.dataType = 'json';
         // push to program id's
-        this.programsToDisplay = ['34077', '34487', '34482'];
+        this.programsToDisplay = ['34077', '34487']; //  Team wod for later, '34482'];
         // default location
         this.location = 'Crossfit Mandeville';
     }
@@ -51,9 +53,9 @@ export class WodDataService {
     }
 
     private createWodRecord(res: IWodifyRecord): IApiWod {
-        
+
         // create a wod
-        var wod: IApiWod = { Program: {Id: '', Name: ''}, Components: {Component: []}, WodHeader: {Date: '', Name: ''}, NoWod: false};
+        var wod: IApiWod = { Program: { Id: '', Name: '' }, Components: { Component: [] }, WodHeader: { Date: '', Name: '' }, NoWod: false };
         // if we have no wod then return a IApiWod with a name and date only in the WodHeader
         if (!_.isUndefined(res.APIError) && res.APIError.ResponseCode === '400') {
             // set the error information
@@ -62,8 +64,8 @@ export class WodDataService {
             return wod;
         }
         // set all the other information
-        wod.Program.Id=res.RecordList.APIWod.Program.Id;
-        wod.Program.Name=res.RecordList.APIWod.Program.Name;
+        wod.Program.Id = res.RecordList.APIWod.Program.Id;
+        wod.Program.Name = res.RecordList.APIWod.Program.Name;
         wod.WodHeader.Date = moment(res.RecordList.APIWod.WodHeader.Date, 'YYYY-MM-DD').format('dddd, MMMM Do, YYYY');
         wod.WodHeader.Name = res.RecordList.APIWod.WodHeader.Name;
         // push the components to the wod
@@ -80,6 +82,40 @@ export class WodDataService {
 
         // return the wod
         return wod;
+    }
+
+    private mapCalendarRecords(res: IWodifyRecord): Array<IClass> {
+        // we need to get the classes out of the records returned
+        let classes = [];
+        _.each(res.RecordList.Class, (apiClass: IApiClass) => {
+            // create the wod class record
+            var wodClass: IClass = {
+                Name: apiClass.Name,
+                ProgramId: apiClass.ProgramId,
+                ProgramName: apiClass.ProgramName,
+                StartDateTime: moment(apiClass.StartDateTime).format('hh:mm a'),
+                EndDateTime: moment(apiClass.EndDateTime).format('hh:mm a'),
+                Coach: ''
+            }
+            wodClass.Coach = apiClass.Coaches && apiClass.Coaches.APICoach ? apiClass.Coaches.APICoach.Name : 'Coach Not Scheduled';
+            // push the wodClass to the array
+            classes.push(wodClass);
+        });
+        // return the classes
+        return classes;
+    }
+
+    getProperDate(): moment.Moment {
+        // first we have to check to see what time it is
+        var afterSevenPm: boolean = moment().hour() >= 19;
+        // if we are after seven pm we need to set the date for tomorrow
+        let wodDateMoment = afterSevenPm ? moment().add(1, 'days') : moment();
+        // return the wodDateMoment
+        return wodDateMoment;
+    }
+
+    formatDateForWodify(dateToFormat: moment.Moment): string {
+        return dateToFormat.format('YYYY-MM-DD')
     }
 
     getPrograms(): Observable<Array<IProgram>> {
@@ -109,7 +145,9 @@ export class WodDataService {
         // get the url
         var url = this.formatRequest('https://app.wodify.com/API/WODs_v1.aspx');
         // get the date
-        var wodDateFormatted = moment(wodDate, 'MM-DD-YYYY').format('YYYY-MM-DD');
+        var wodDateMoment = moment(wodDate, 'MM-DD-YYYY');
+        var wodDateFormatted = this.formatDateForWodify(wodDateMoment);
+        // creat the URL
         url = url + `&location=${encodeURIComponent(this.location)}&program=${encodeURIComponent(program)}&date=${encodeURIComponent(wodDateFormatted)}`;
         // run the git
         return this.http.get(url)
@@ -117,8 +155,23 @@ export class WodDataService {
             .map((res: Response) => res.json() as IWodifyRecord)
             // map the record to a wod
             .map((res: IWodifyRecord) => {
-               // return the created record
-               return this.createWodRecord(res);
+                // return the created record
+                return this.createWodRecord(res);
+            })
+            .catch(this.handleError);
+    }
+
+    getCalendar(scheduleDate: string): Observable<Array<IClass>> {
+        // get the formatted url to append the specific params to
+        let url = this.formatRequest('https://app.wodify.com/API/classes_v1.aspx');
+        url = `${url}&date=${scheduleDate}`;
+
+        return this.http.get(url)
+            // get the response as json
+            .map((res: Response) => res.json() as IWodifyRecord)
+            // map the response's programs and return them
+            .map((res: IWodifyRecord) => {
+                return this.mapCalendarRecords(res);
             })
             .catch(this.handleError);
     }

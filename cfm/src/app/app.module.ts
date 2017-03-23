@@ -3,17 +3,19 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { WodDataService } from './wod/wod.dataService';
+import { WodifyDataService } from './shared/wodify.dataService';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { WodComponent } from './wod/wod.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    WodComponent
+    WodComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,7 @@ import { WodComponent } from './wod/wod.component';
     HttpModule
   ],
   providers: [
-    WodDataService
+    WodifyDataService
   ],
   bootstrap: [AppComponent]
 })

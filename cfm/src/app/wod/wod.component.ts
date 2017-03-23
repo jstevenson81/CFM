@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 import { IProgram } from '../interfaces/IProgram';
 import { IApiWod } from '../interfaces/IApiWod';
 
-import { WodDataService } from './wod.dataService';
+import { WodifyDataService } from '../shared/wodify.dataService';
 
 @Component({
   selector: 'cfm-wod',
@@ -28,7 +28,7 @@ export class WodComponent {
   wodProgramName: string;
   showWeek: boolean;
 
-  constructor(private dataService: WodDataService) {
+  constructor(private dataService: WodifyDataService) {
     this.showWeek = false;
   }
 
@@ -42,11 +42,7 @@ export class WodComponent {
 
   getWod(programName: string): void {
 
-    // first we have to check to see what time it is
-    var afterSevenPm: boolean = moment().hour() >= 19;
-    // if we are after seven pm we need to set the date for tomorrow
-    let wodDateMoment: moment.Moment;
-    wodDateMoment = afterSevenPm ? moment().add(1, 'days') : moment();
+    let wodDateMoment = this.dataService.getProperDate();
     // set the current wod date
     this.wodDate = wodDateMoment.format('dddd, MMMM Do, YYYY');
     // set the current wod program name
