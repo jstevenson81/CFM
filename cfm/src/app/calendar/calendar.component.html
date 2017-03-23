@@ -11,8 +11,7 @@
                 <tr>
                     <th>Program</th>
                     <th>Class</th>
-                    <th>Start</th>
-                    <th>End</th>
+                    <th>Time</th>
                     <th>Coach</th>
                 </tr>
                         
@@ -21,8 +20,7 @@
                         <tr *ngFor="let class of classes">
                             <td>{{class.ProgramName}}</td>
                             <td>{{class.Name}}</td>
-                            <td>{{class.StartDateTime}}</td>
-                            <td>{{class.EndDateTime}}</td>
+                            <td>{{class.StartDateTime}} - {{class.EndDateTime}}</td>
                             <td>{{class.Coach}}</td>
                         </tr>
                     </tbody>
