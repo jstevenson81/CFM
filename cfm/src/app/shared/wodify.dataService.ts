@@ -28,7 +28,13 @@ export class WodifyDataService {
         this.apiKey = '8oxu8eutwg3d740yte9qo6rhd'
         this.dataType = 'json';
         // push to program id's
-        this.programsToDisplay = ['34077', '34487']; //  Team wod for later, '34482'];
+        this.programsToDisplay = ['34077', '34487']; //  Team wod for later, '34482']
+        // if today is friday after 7:00 PM or saturday, we need to show the team wod button
+        var day = moment().isoWeekday();
+        var hour = moment().hour();
+        if (day === 6 || (day == 5 && hour >= 19)) {
+            this.programsToDisplay.push('34482')
+        }
         // default location
         this.location = 'Crossfit Mandeville';
     }
