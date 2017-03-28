@@ -93,6 +93,22 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px 40px;
 }
 
+.btn {
+    &.active {
+        background-color: #204d74;
+        border-color: #122b40;
+    }
+}
+
+.btn-group {
+    label {
+        &.active, &:focus {
+            background-color: #204d74;
+            border-color: #122b40;
+        }
+    }
+}
+
 // Custom Navigation Bar
 
 .navbar-custom {

@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { WodComponent } from './wod/wod.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { ProgramsComponent } from './programs/programs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     WodComponent,
-    CalendarComponent
+    CalendarComponent,
+    ProgramsComponent
   ],
   imports: [
     BrowserModule,

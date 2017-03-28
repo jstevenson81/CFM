@@ -32,6 +32,6 @@ export class CalendarComponent {
         this.today = properDate.format('dddd, MMMM Do, YYYY')
         // get the calendar
         this.dataService.getCalendar(this.dataService.formatDateForWodify(properDate))
-        .subscribe(classes => {this.classes = classes; console.log(this.classes)}, error => this.errorMessage = error as any);
+        .subscribe(classes => this.classes = classes, error => this.errorMessage = error as any);
     }
 }

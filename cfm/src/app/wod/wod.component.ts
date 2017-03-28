@@ -36,8 +36,7 @@ export class WodComponent {
     this.dataService
       .getPrograms()
       .subscribe(
-      programs => { this.programList = programs; console.log(this.programList) },
-      error => this.errorMessage = error as any);
+      programs => this.programList = programs, error => this.errorMessage = error as any);
   }
 
   getWod(programName: string): void {
@@ -71,7 +70,6 @@ export class WodComponent {
       _.each(wods, (wod: IApiWod) => {
         this.weeklyWods.push(wod)
       });
-      console.log(this.weeklyWods);
     }, 
     error => this.errorMessage = error as any);    
   }
