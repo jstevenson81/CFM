@@ -121,7 +121,7 @@ export class WodifyDataService {
     }
 
     formatDateForWodify(dateToFormat: moment.Moment): string {
-        return dateToFormat.format('YYYY-MM-DD')
+        return dateToFormat.format('YYYY-MM-DD');
     }
 
     getPrograms(): Observable<Array<IProgram>> {
