@@ -10,6 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { WodComponent } from './wod/wod.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ProgramsComponent } from './programs/programs.component';
+import { MemberSpotlightComponent } from './memberSpotlight/memberSpotlight.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProgramsComponent } from './programs/programs.component';
     NavComponent,
     WodComponent,
     CalendarComponent,
-    ProgramsComponent
+    ProgramsComponent,
+    MemberSpotlightComponent
   ],
   imports: [
     BrowserModule,
