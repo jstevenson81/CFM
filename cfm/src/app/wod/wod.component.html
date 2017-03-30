@@ -1,0 +1,42 @@
+<div class="btn-group hidden-xs" data-toggle="buttons">
+    <label class="btn btn-primary" *ngFor="let prog of programList" (click)="getWod(prog.Name)">
+        <input type="radio" name="programs" value="{{prog.Id}}">{{prog.Name}}
+    </label>
+</div>
+<div class="btn-group-vertical visible-xs" data-toggle="buttons">
+    <label class="btn btn-primary" *ngFor="let prog of programList" (click)="getWod(prog.Name)">
+        <input type="radio" name="programs" value="{{prog.Id}}">{{prog.Name}}
+    </label>
+</div>
+<div class="xs-vert-single-button">
+    <button class="btn btn-primary" data-toggle="button" (click)="toggleWeekView()">Show Full Week?</button>
+</div>
+<div *ngIf="!showWeek">
+    <div *ngIf="wod?.NoWod === true" class="wod-container">
+        <h3>{{wodProgramName}} <small>{{wodDate}}</small></h3>
+        <p class="emphasis text-danger"><strong>There is no WOD scheduled.</strong> Check back tomorrow for an update</p>
+    </div>
+
+    <div *ngIf="wod?.NoWod === false" class="wod-container">
+        <h3>{{wod?.WodHeader.Name}} <small>{{wod?.WodHeader.Date}}</small></h3>
+        <div *ngFor="let component of wod?.Components?.Component" class="wod">
+            <h4 [innerHTML]="component.Name"></h4>
+            <strong [innerHTML]="component.Description"></strong>
+            <strong [innerHTML]="component.Comments"></strong>
+        </div>
+    </div>
+</div>
+<div *ngIf="showWeek" class="container-fluid wod-container">
+    <div class="row">
+        <div class="col-xs-12" *ngFor="let iWod of weeklyWods">
+            <div *ngIf="iWod.NoWod === false" class="wod-list-container">
+                <h3>{{iWod?.WodHeader.Name}} <small>{{iWod?.WodHeader.Date}}</small></h3>
+                <div *ngFor="let component of iWod?.Components?.Component" class="wod">
+                    <h4 [innerHTML]="component.Name"></h4>
+                    <strong [innerHTML]="component.Description"></strong>
+                    <strong [innerHTML]="component.Comments"></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "css": {
+    "site": [
+      "node_modules/bootstrap/dist/css/bootstrap.css",
+      "node_modules/font-awesome/css/font-awesome.css",
+      "src/assets/less/cfm.min.css",
+      "src/app/wod/wod.component.min.css"      
+    ]
+  }
+}
