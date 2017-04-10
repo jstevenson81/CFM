@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -13,6 +13,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.0.1",
+    "@angular/cli": "^1.0.0",
     "@angular/common": "^4.0.1",
     "@angular/compiler": "^4.0.1",
     "@angular/compiler-cli": "^4.0.1",
@@ -35,8 +36,8 @@
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0-rc.2",
-    "@angular/compiler-cli": "^2.4.0",
+    "@angular/cli": "^1.0.0",
+    "@angular/compiler-cli": "^4.0.1",
     "@types/bootstrap": "^3.3.32",
     "@types/gulp": "^4.0.2",
     "@types/gulp-less": "0.0.30",
