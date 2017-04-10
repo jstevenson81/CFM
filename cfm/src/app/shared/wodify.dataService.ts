@@ -74,8 +74,16 @@ export class WodifyDataService {
         wod.Program.Name = res.RecordList.APIWod.Program.Name;
         wod.WodHeader.Date = moment(res.RecordList.APIWod.WodHeader.Date, 'YYYY-MM-DD').format('dddd, MMMM Do, YYYY');
         wod.WodHeader.Name = res.RecordList.APIWod.WodHeader.Name;
-        // push the components to the wod
-        _.each(res.RecordList.APIWod.Components.Component, (component: IComponent) => {
+        
+        // create a collection if component is not one
+        var componentColection: Array<IComponent> = [];
+        if (!_.isArray(res.RecordList.APIWod.Components.Component)) 
+            componentColection.push(res.RecordList.APIWod.Components.Component)
+        else 
+            componentColection = res.RecordList.APIWod.Components.Component;
+        
+        // push the components to the wod        
+        _.each(componentColection, (component: IComponent) => {
             // map the component if it has a description or a comment
             if (!_.isEmpty(component.Comments) || !_.isEmpty(component.Description)) {
                 // remove the line breaks
