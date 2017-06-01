@@ -75,6 +75,12 @@ export class WodifyDataService {
         wod.WodHeader.Date = moment(res.RecordList.APIWod.WodHeader.Date, 'YYYY-MM-DD').format('dddd, MMMM Do, YYYY');
         wod.WodHeader.Name = res.RecordList.APIWod.WodHeader.Name;
         
+        // check to see if a wod has a component collection, if not, there's no wod
+        if (_.isEmpty(res.RecordList.APIWod.Components) || _.isEmpty(res.RecordList.APIWod.Components.Component)) {
+            // set the wod to no wod true
+            wod.NoWod = true;
+            return wod;
+        }
         // create a collection if component is not one
         var componentColection: Array<IComponent> = [];
         if (!_.isArray(res.RecordList.APIWod.Components.Component)) 
