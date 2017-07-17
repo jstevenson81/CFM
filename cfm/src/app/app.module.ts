@@ -11,6 +11,7 @@ import { WodComponent } from './wod/wod.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { MemberSpotlightComponent } from './memberSpotlight/memberSpotlight.component';
+import { EventComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MemberSpotlightComponent } from './memberSpotlight/memberSpotlight.comp
     WodComponent,
     CalendarComponent,
     ProgramsComponent,
-    MemberSpotlightComponent
+    MemberSpotlightComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
