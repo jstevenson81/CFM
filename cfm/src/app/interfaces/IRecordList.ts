@@ -3,7 +3,7 @@ import { IApiWod } from './IApiWod';
 import { IApiClass } from './IApiClass';
 
 export interface IRecordList {
-    Program: Array<IProgram>;
+    GymProgram: Array<IProgram>;
     APIWod: IApiWod;
     Class: Array<IApiClass>;
 }
