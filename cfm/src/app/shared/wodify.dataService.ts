@@ -147,7 +147,7 @@ export class WodifyDataService {
             // map the response's programs and return them
             .map((res: IWodifyRecord) => {
                 // create a result holder
-                let result = _.reject(res.RecordList.Program, (program: IProgram) => {
+                let result = _.reject(res.RecordList.GymProgram, (program: IProgram) => {
                     // see if the program is in the list of accepted programs
                     var allowed = _.find(this.programsToDisplay, (id: string) => {
                         return id === program.Id;
