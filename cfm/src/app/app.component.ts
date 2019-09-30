@@ -1,7 +1,7 @@
 ﻿// angular imports
 import { Component } from '@angular/core';
 
-// jquery 
+// jquery
 declare var $: JQueryStatic;
 
 @Component({
@@ -38,7 +38,7 @@ export class AppComponent {
 
 
             // Offset for Main Navigation
-            $('#mainNav').affix({
+            (<any>$('#mainNav')).affix({
                 offset: {
                     top: 100
                 }
